@@ -1,0 +1,20 @@
+{"namespace": "eu.spaziodati.poldini.avro",
+"name": "Page",
+    "type": "record",
+	"doc": "doc",
+    "fields": [
+        {
+            "name": "url",
+            "type": "string"
+        },
+        {
+            "name": "content",
+            "type": "string"
+        },
+        {
+        	"name": "debug",
+        	"type": "string"
+        }
+    ]
+    
+}

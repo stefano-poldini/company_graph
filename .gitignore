@@ -1,0 +1,12 @@
+bin
+.metadata
+.settings
+*~
+target/
+output/
+output_test/
+_bsp/
+build/
+*(copy)
+/home/stich/workspace/company_graph/src/main/java/eu/spaziodati/poldini/util/Keys.java
+/home/stich/workspace/company_graph/src/main/avro

@@ -1,0 +1,19 @@
+{
+	"namespace": "eu.spaziodati.poldini.avro",
+	"name": "Link",
+    "type": "record",
+    "doc": "doc",
+    "fields": [
+        		{
+            		"name": "url",
+            		"type": "string"
+        		},
+				{ 
+					"name": "links",
+      				"type":{
+     						"type": "array",
+          					"items":{
+							"type": "string"
+            }}}
+]
+}

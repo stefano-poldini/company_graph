@@ -1,0 +1,12 @@
+bin
+.metadata
+.settings
+*~
+target/
+output/
+output_test/
+_bsp/
+build/
+*(copy)
+src/main/java/eu/spaziodati/poldini/util/Keys.java
+src/main/avro/

@@ -13,6 +13,7 @@ import org.junit.Assert;
 
 import eu.spaziodati.poldini.avro.Page;
 import eu.spaziodati.poldini.mapreduce.utils.TestUtils;
+import eu.spaziodati.poldini.utils.Utils;
 
 public class MapReducePageFilterTest {
 	String TEST_INPUT_FOLDER = "output_test/filter/";
@@ -29,7 +30,8 @@ public class MapReducePageFilterTest {
 			Page pageA = new Page("www.a.it", "datagem", "datagem");
 			Page pageB = new Page("www.b.it", "datagem", "datagem");
 			Page pageC = new Page("www.c.it", "datagem", "datagem");
-			TestUtils.marshal(datagem, pageA, pageB, pageC);
+			Page pageE = new Page("e.it", "datagem", "datagem");
+			TestUtils.marshal(datagem, pageA, pageB, pageC,pageE);
 		}
 
 		// create snapshot test file
@@ -38,7 +40,8 @@ public class MapReducePageFilterTest {
 			Page pageA = new Page("www.a.it", "a", "a");
 			Page pageB = new Page("www.b.it", "b", "b");
 			Page pageD = new Page("www.d.it", "d", "d");
-			TestUtils.marshal(snapshot, pageA, pageB, pageD);
+			Page pageE = new Page("www.e.it", "e", "e");
+			TestUtils.marshal(snapshot, pageA, pageB, pageD, pageE);
 		}
 	}
 
@@ -46,13 +49,13 @@ public class MapReducePageFilterTest {
 	public void testRun() {
 		try {
 			String[] args = { TEST_INPUT_FOLDER, TEST_OUTPUT_FOLDER };
+			Utils.deleteDir(new File(TEST_OUTPUT_FOLDER));
 			int res = -1;
 			res = ToolRunner.run(new MapReducePageFilter(), args);
 
 			assert (res == 0);
 			File file = new File(TEST_OUTPUT_FOLDER + "/part-r-00000.avro");
 			ArrayList<Page> pages = TestUtils.unmarshal(file, Page.class);
-			assertTrue(pages.size()>0);
 			assertTrue(pages.contains(new Page("www.a.it", "a", "a")));
 			assertTrue(pages.contains(new Page("www.b.it", "b", "b")));
 			assertFalse(pages.contains(new Page("www.c.it", "c", "c")));

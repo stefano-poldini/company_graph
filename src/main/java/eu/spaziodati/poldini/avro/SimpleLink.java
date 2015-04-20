@@ -8,7 +8,7 @@ package eu.spaziodati.poldini.avro;
 /** doc */
 @org.apache.avro.specific.AvroGenerated
 public class SimpleLink extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SingleLink\",\"namespace\":\"eu.spaziodati.poldini.avro\",\"doc\":\"doc\",\"fields\":[{\"name\":\"source\",\"type\":\"string\"},{\"name\":\"target\",\"type\":\"string\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SimpleLink\",\"namespace\":\"eu.spaziodati.poldini.avro\",\"doc\":\"doc\",\"fields\":[{\"name\":\"source\",\"type\":\"string\"},{\"name\":\"target\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence source;
   @Deprecated public java.lang.CharSequence target;
@@ -77,23 +77,23 @@ public class SimpleLink extends org.apache.avro.specific.SpecificRecordBase impl
     this.target = value;
   }
 
-  /** Creates a new SingleLink RecordBuilder */
+  /** Creates a new SimpleLink RecordBuilder */
   public static eu.spaziodati.poldini.avro.SimpleLink.Builder newBuilder() {
     return new eu.spaziodati.poldini.avro.SimpleLink.Builder();
   }
   
-  /** Creates a new SingleLink RecordBuilder by copying an existing Builder */
+  /** Creates a new SimpleLink RecordBuilder by copying an existing Builder */
   public static eu.spaziodati.poldini.avro.SimpleLink.Builder newBuilder(eu.spaziodati.poldini.avro.SimpleLink.Builder other) {
     return new eu.spaziodati.poldini.avro.SimpleLink.Builder(other);
   }
   
-  /** Creates a new SingleLink RecordBuilder by copying an existing SingleLink instance */
+  /** Creates a new SimpleLink RecordBuilder by copying an existing SimpleLink instance */
   public static eu.spaziodati.poldini.avro.SimpleLink.Builder newBuilder(eu.spaziodati.poldini.avro.SimpleLink other) {
     return new eu.spaziodati.poldini.avro.SimpleLink.Builder(other);
   }
   
   /**
-   * RecordBuilder for SingleLink instances.
+   * RecordBuilder for SimpleLink instances.
    */
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<SimpleLink>
     implements org.apache.avro.data.RecordBuilder<SimpleLink> {
@@ -119,7 +119,7 @@ public class SimpleLink extends org.apache.avro.specific.SpecificRecordBase impl
       }
     }
     
-    /** Creates a Builder by copying an existing SingleLink instance */
+    /** Creates a Builder by copying an existing SimpleLink instance */
     private Builder(eu.spaziodati.poldini.avro.SimpleLink other) {
             super(eu.spaziodati.poldini.avro.SimpleLink.SCHEMA$);
       if (isValidValue(fields()[0], other.source)) {

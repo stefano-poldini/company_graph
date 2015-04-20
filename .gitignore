@@ -1,6 +1,8 @@
 bin
 .metadata
 .settings
+.project
+.classpath
 *~
 target/
 output/
@@ -10,3 +12,4 @@ build/
 *(copy)
 src/main/java/eu/spaziodati/poldini/util/Keys.java
 src/main/avro/
+scriptGit.sh

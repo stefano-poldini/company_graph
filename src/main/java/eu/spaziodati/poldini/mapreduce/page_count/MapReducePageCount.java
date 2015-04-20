@@ -16,7 +16,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 
 import eu.spaziodati.poldini.avro.Page;
-import eu.spaziodati.poldini.util.Utils;
+import eu.spaziodati.poldini.utils.Utils;
 
 public class MapReducePageCount extends Configured implements Tool {
 

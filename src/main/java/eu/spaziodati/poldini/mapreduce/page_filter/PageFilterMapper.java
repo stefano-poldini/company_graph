@@ -17,15 +17,16 @@ public class PageFilterMapper extends Mapper<AvroKey<Page>, NullWritable, Text, 
 	public void map(AvroKey<Page> key, NullWritable value, Context context) throws IOException, InterruptedException {
 		Page page = key.datum();
 		String url = page.getUrl().toString();
+		
+//			System.out.println(key + " , " + page);
 		if (url != null && !url.equals("")) {
 			try {
 				URI uri=new URI(url);
+//				System.out.print(uri+"  dopo ");
 				if (!uri.isAbsolute())
 					uri=new URI("http://"+url);			
 				String host=uri.getHost();
-//				if (host.contains("enerxia")){
-//					System.out.println(page);
-//				}
+//				System.out.println(uri);
 				context.write(new Text(host), new AvroValue<Page>(page) );
 //				context.write(page, page);
 //				System.out.println(url);

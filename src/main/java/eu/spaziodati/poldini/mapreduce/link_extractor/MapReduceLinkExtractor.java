@@ -21,7 +21,7 @@ import org.apache.hadoop.util.Tool;
 import eu.spaziodati.poldini.avro.Page;
 import eu.spaziodati.poldini.avro.SimpleLink;
 import eu.spaziodati.poldini.mapreduce.page_filter.MapReducePageFilter;
-import eu.spaziodati.poldini.util.Utils;
+import eu.spaziodati.poldini.utils.Utils;
 
 
 
@@ -52,7 +52,7 @@ public class MapReduceLinkExtractor extends Configured implements Tool {
 //        AvroSerialization.setValueReaderSchema(conf, SimpleLink.getClassSchema());
         
 		Job job = new Job(conf);
-		job.setJarByClass(MapReducePageFilter.class);
+		job.setJarByClass(MapReduceLinkExtractor.class);
 		job.setJobName("Link Extractor");
 
 		// set file input format

@@ -29,8 +29,6 @@ public class LinkExtractorReducer extends
 			}else{
 				valueList.add(value.toString());
 			}
-				
-			
 		}
 		
 		if (valid) {

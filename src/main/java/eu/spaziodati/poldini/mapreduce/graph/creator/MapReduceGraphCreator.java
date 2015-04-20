@@ -21,7 +21,7 @@ import eu.spaziodati.poldini.avro.Page;
 import eu.spaziodati.poldini.avro.SimpleLink;
 import eu.spaziodati.poldini.mapreduce.page_filter.MapReducePageFilter;
 import eu.spaziodati.poldini.mapreduce.page_filter.PageFilterReducer;
-import eu.spaziodati.poldini.util.Utils;
+import eu.spaziodati.poldini.utils.Utils;
 
 public class MapReduceGraphCreator extends Configured implements Tool{
 
@@ -38,7 +38,7 @@ public class MapReduceGraphCreator extends Configured implements Tool{
 		Configuration conf = getConf();
         
 		Job job = new Job(conf);
-		job.setJarByClass(MapReducePageFilter.class);
+		job.setJarByClass(MapReduceGraphCreator.class);
 		job.setJobName("Graph Creator");
 
 		// set file input format

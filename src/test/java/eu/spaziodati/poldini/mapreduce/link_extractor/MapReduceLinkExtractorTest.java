@@ -19,7 +19,7 @@ import eu.spaziodati.poldini.avro.SimpleLink;
 import eu.spaziodati.poldini.mapreduce.utils.TestUtils;
 
 public class MapReduceLinkExtractorTest {
-	String TEST_INPUT_FOLDER = "output_test/link_extractor";
+	String TEST_INPUT_FOLDER = "output_test/link_extractor/";
 	String TEST_INPUT_FILE = TEST_INPUT_FOLDER + "test_page_file.avro";
 	String TEST_OUTPUT_FOLDER = TEST_INPUT_FOLDER + "output_link_extractor_test";
 
@@ -31,7 +31,7 @@ public class MapReduceLinkExtractorTest {
 				Page page1 = TestUtils.createPage("a", "b");
 				Page page2 = TestUtils.createPage("b", "c", "d");
 				Page page3 = TestUtils.createPage("c", "a", "b");
-				marshalTestDataset(file, page1, page2, page3);
+				TestUtils.marshal(file, page1, page2, page3);
 			}
 			String[] args = { TEST_INPUT_FILE, TEST_OUTPUT_FOLDER };
 			int res = -1;
@@ -40,7 +40,7 @@ public class MapReduceLinkExtractorTest {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			assert (res == 0);
+			assertTrue (res == 0);
 			file = new File(TEST_OUTPUT_FOLDER + "/part-r-00000.avro");
 			ArrayList<SimpleLink> links = TestUtils.unmarshal(file, SimpleLink.class);
 			assertTrue (links.contains(new SimpleLink("http://www.a.it", "http://www.b.it")));
@@ -53,8 +53,5 @@ public class MapReduceLinkExtractorTest {
 		}
 	}
 
-	private void marshalTestDataset(File file, Page... pages) throws IOException {
-		TestUtils.marshal(file, pages);
-	}
 
 }

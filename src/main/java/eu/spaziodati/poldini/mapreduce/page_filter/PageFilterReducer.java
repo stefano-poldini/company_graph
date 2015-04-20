@@ -24,6 +24,10 @@ public class PageFilterReducer extends Reducer<Text, AvroValue<Page>, AvroKey<Pa
 		
 		for (AvroValue<Page> value : values) {
 			Page page = value.datum();
+//			if (key.toString().contains("google")){
+//				System.out.println(key + " , " + page);
+//			}
+			
 			// if the content of the page is empty it means that there is a
 			// datagem page inside the values list
 			// and the key is a valid url

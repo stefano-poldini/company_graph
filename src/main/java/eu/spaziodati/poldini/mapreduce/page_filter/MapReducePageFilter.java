@@ -16,14 +16,21 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 
 import eu.spaziodati.poldini.avro.Page;
-import eu.spaziodati.poldini.util.Utils;
+import eu.spaziodati.poldini.utils.Utils;
 
 public class MapReducePageFilter extends Configured implements Tool {
 
 	public int run(String[] args) throws Exception {
-		String inputFile = args[0];
+
+		if (args.length < 2) {
+			System.err.println("Usage: MapReducePageCount <datagem avro file path> <input path 1> <input path 2>.... <output path>");
+			return -1;
+		}
+		
 		String outputFile = args[args.length - 1];
-		System.out.println(inputFile + "  " + outputFile);
+		for (int i = 0; i < args.length; i++) {
+			System.out.println(args[i]);
+		}
 
 		Configuration conf = getConf();
 		AvroSerialization.addToConfiguration(conf);
@@ -42,8 +49,10 @@ public class MapReducePageFilter extends Configured implements Tool {
 		}
 
 		// delete directory if outputFile directory exists
-		File file = new File(outputFile);
-		Utils.deleteDir(file);
+//		File file = new File(outputFile);
+//		Utils.deleteDir(file);
+		
+		
 		FileOutputFormat.setOutputPath(job, new Path(outputFile));
 
 		// getConf().set("io.serializations","org.apache.avro.mapred.AvroSerialization<Page>");

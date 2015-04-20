@@ -14,6 +14,7 @@ import org.apache.avro.specific.SpecificDatumWriter;
 import org.apache.avro.specific.SpecificRecordBase;
 
 import eu.spaziodati.poldini.avro.Page;
+import eu.spaziodati.poldini.utils.Utils;
 
 public class TestUtils {
 	public static <T extends SpecificRecordBase> ArrayList<T> unmarshal(File file, Class<T> avroClass)
@@ -62,13 +63,6 @@ public class TestUtils {
 	 * @throws IOException
 	 */
 	public static File createFile(String path) throws IOException {
-		File file = new File(path);
-		if (!file.exists()) {
-			file.getParentFile().mkdirs();
-		}
-		if (file.createNewFile())
-			return file;
-		else
-			return null;
+		return Utils.createFile(path);
 	}
 }
